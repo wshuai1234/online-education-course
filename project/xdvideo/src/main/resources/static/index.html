@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <!-- aboved 3 meta tag*must*put ahead，any other contents*must*be put after that！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">eduneering online website</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">main page <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">blog</a></li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">search</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" id='login'>wechat one click login</a></li>
+        <li><img id="head_img" src="https://xd-video-pc-img.oss-cn-beijing.aliyuncs.com/upload/video/video_cover.png" alt="..." style="width: 50px;height: 50px" class="img-circle"></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- barcode prompt window -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">order valid in 10 minutes</h4>
+      </div>
+
+      <div class="modal-body">
+       <img id="pay_img" src="" alt="..." style="width: 200px;height: 200px" class="img-circle">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+   
+</div>
+
+    <!-- jQuery (Bootstrap 's all JavaScript plugin all depend on jQuery，so must put ahead) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- load Bootstrap all JavaScript plugin, you can also load one plugin by demand -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

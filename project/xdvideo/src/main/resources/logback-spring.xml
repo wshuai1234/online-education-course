@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <appender name="consoleApp" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%logger{56}.%method:%L -%msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="dataApp" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                `%date{yyyy-MM-dd HH:mm:ss.SSS}`%msg`%n
+            </pattern>
+        </encoder>
+        <!-- rolling strategy -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- path -->
+            <fileNamePattern>app_log/log/app.data.%d.log</fileNamePattern>
+            <MaxHistory>1</MaxHistory>
+
+        </rollingPolicy>
+    </appender>
+
+
+    <appender name="fileInfoApp" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%logger{56}.%method:%L -%msg%n
+            </pattern>
+        </encoder>
+        <!-- rolling strategy -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- path -->
+            <fileNamePattern>app_log/log/app.info.%d.log</fileNamePattern>
+            <MaxHistory>1</MaxHistory>
+
+        </rollingPolicy>
+    </appender>
+
+    <appender name="fileErrorApp" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%logger{56}.%method:%L -%msg%n
+            </pattern>
+        </encoder>
+
+        <!-- setting rolling strategy -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- path -->
+            <fileNamePattern>app_log/log/app.err.%d.log</fileNamePattern>
+
+            <!-- control saved documentation max amount, delete when exceeding, default rolling every month and <maxHistory> is 1, then only save most recent one 1month files and delete old file -->
+            <MaxHistory>1</MaxHistory>
+
+        </rollingPolicy>
+    </appender>
+
+    <!--used to analysis-->
+    <logger name="dataLogger">
+        <level value="INFO" />
+        <appender-ref ref="dataApp" />
+    </logger>
+
+
+    <root level="INFO">
+        <appender-ref ref="consoleApp"/>
+        <appender-ref ref="fileInfoApp"/>
+        <appender-ref ref="fileErrorApp"/>
+    </root>
+
+</configuration>
